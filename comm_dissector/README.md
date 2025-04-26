@@ -22,7 +22,7 @@ Installing the dissectors to Wireshark allows analyzing the protocol commands in
 
 Typically, you will capture the communication using either Wiresharks USB/ETH capture or using `comm_*2pcap.py` scripts. Then open the file in Wireshark.
 
-## Setup 
+## Setup
 
 **Note:** Updated for Wireshark 4.4.6
 
@@ -30,21 +30,21 @@ A relatively simple setup is required to use the new dissectors.
 
 ### Create a directory outside the Lua folder
 
-If you place all of the Lua files in **or under ** Wireshark's LUA folder, you will most likely encounter a frustrating series of problems. To avoid this, create a directory outside Wireshark's plug-in tree. Feel free to create it in use your home directory, for example.
+If you place all of the Lua files in **or under ** Wireshark's LUA folder, you will likely encounter a series of "Lua: Error during loading" errors when you start Wireshark. To avoid this, create a directory outside Wireshark's plug-in tree. Feel free to create it in your home directory, for example.
 
-(Tech note: When the Lua `dofile` command executes if it is only passed a filename, it try to load it from the current working directory and that probably won't be where the scripts are located.)
+(Tech note: If the Lua `dofile` command is only provided a file name (without path), it tries to load the file from the current working directory and that probably won't be where the scripts are located.)
 
 ### Copy the script files
 
-Copy **all the Lua files** (*.lua) to your new directory (that is outside Wireshark's plug) folder **except** `init.lua`.
+Copy **all the Lua files** (`*.lua`) to your new directory (that is outside Wireshark's plug) folder **except** `init.lua`.
 
-Copy `init.lua` to your Wireshark `Personal Lua Plugins` directory. You can locate this directory in the `About Wireshark` dialog under the `Folders` tab. For further information refer to the [directories chapter in official documentation](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html).
+Copy `init.lua` to your Wireshark *Personal Lua Plugins* directory. You can locate this directory in the *About Wireshark* dialog under the *Folders* tab. For further information refer to the [directories chapter in official documentation](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html).
 
 If Wireshark is running, fully close the application.
 
-Edit init.lua to point to the directory into which you copied all of the Lua files. 
+Edit `init.lua` to point to the directory into which you copied all of the Lua files. 
 
-In summary, Wireshark will find `init.lua` in your `Personal Lua Plugins directory`, and `init.lua` in turn must contain an absolute path to the rest of the Lua files.
+In summary, Wireshark will find `init.lua` in your *Personal Lua Plugins* directory, and `init.lua` in turn must contain an absolute path to the rest of the Lua files.
 
 ### Start Wireshark
 
