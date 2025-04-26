@@ -1,7 +1,7 @@
 disable_lua = false
 
 -- Change dji_script_path to point to the directory where you have copied
--- the Lua scripts. Do not place them in the Wireshark Lau directory.
+-- the Lua scripts. Do not place them in the Wireshark Lua directory.
 -- Please see the README file for more information.
 -- This path should be an absolute path and end with a "/"
 --
